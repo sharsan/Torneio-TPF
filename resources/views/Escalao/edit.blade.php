@@ -1,11 +1,11 @@
 @extends('admin')
 @section('content')
-<title>Actualizando clube</title>
+<title>Actualizando escalão</title>
  <link rel="stylesheet" href="{{asset('css/app.css')}}"> 
   <body>
 <div class="container">
-  <h2>Editar clube</h2><br>
-       <a href="{{URL::to('clube')}}" title=""><h4><- voltar</h4></a>
+  <h2>Editar escalão</h2><br>
+       <a href="{{URL::to('escalao')}}" title=""><h4><- voltar</h4></a>
 
  
                @if ($errors->any())
@@ -20,10 +20,10 @@
 
                @if (\Session::has('success'))
                    <div class="alert alert-success">
-                        <p>{{URL::to('clube')}}</p>
+                        <p>{{URL::to('escalao')}}</p>
                    </div><br>
                @endif
-  <form method="post" action="{{action('ClubeController@update', $id)}}"> 
+  <form method="post" action="{{action('EscalaoController@update', $id)}}"> 
           {{csrf_field()}}
    <input name="_method" type="hidden" value="PATCH">  
 
@@ -31,20 +31,20 @@
 
           <div class="col-md-4">
              <label for="nome"> Nome :</label>
-               <input type="text" class="form-control" name="nome"placeholder="Ex: Costa do Sol"value="{{$clube->nome}}">
+               <input type="text" class="form-control" name="nome"placeholder="Ex: Costa do Sol"value="{{$escalao->nome}}">
                </input>
          
            </div> 
                                     <!-- Outros detalhes --> 
-      <!-- 
-       <div class="col-md-12"> 
+      
+   <!--     <div class="col-md-12"> 
           <br>  <label for="descricao">Outros detalhes :
                 
-               <br><br>  <textarea name="descricao" rows="8" cols="90">{{$clube->descricao}}</textarea> 
-            </label> -->
+               <br><br>  <textarea name="descricao" rows="8" cols="90">{{$escalao->descricao}}</textarea> 
+            </label>
             
-     
-        <div class="col-md-12"> <br> 
+        </div> -->
+        <div class="col-md-12">  <br>
     <button type="submit" class="btn btn-success" style="margin-left:38px">Actualizar</button> 
         </div>
   </form>

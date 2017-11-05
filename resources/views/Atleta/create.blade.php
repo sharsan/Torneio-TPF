@@ -125,7 +125,7 @@
                  </label>  
             </div>
          </div>
-               <div class="form-group col-md-6"> 
+               <div class="form-group col-md-8"> 
                 <div class="col-md-6"> <br>
                              <!-- Escalao  --> 
                  <label for="escalao">Escalão de peso : 
@@ -133,9 +133,13 @@
                   
                           @foreach($escalao as $esc)
                           <option value="{{$esc->nome}}">{{$esc->nome}} </option>
-                          @endforeach
-                      </select>
-                 </label>           
+                          @endforeach   
+                      </select> 
+                </label>  
+            
+             <label> <a href="{{URL::to('escalao')}}" title=""><h5>+ Outro escalão</h5></a> 
+           </label> 
+                    
                 </div>
                               <!-- Peso --> 
                <div class="col-md-3">        

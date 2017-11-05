@@ -34,16 +34,17 @@
                 <label for="nome"> Nome :</label>
         <input type="text" class="form-control" name="nome"placeholder="Ex: Juvenis "></input> 
             </div>
-        </div>
+        </div>  
+      </div>
 
                                      <!-- Outros detalhes --> 
-
+<!-- 
          <div class="form-group col-md-12">
              <br> <label for="descricao" class="col-sm-2 col-form-label col-form-label-sm">Outros detalhes
                
           <br> <br><textarea name="nota" rows="8" cols="80"></textarea> 
               </label>
-        </div>
+        </div> -->
 
    <div class="form-group col-md-4"> 
     <button type="submit" class="btn btn-success" style="margin-left:38px">Adicionar categoria</button>  

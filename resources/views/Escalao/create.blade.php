@@ -1,10 +1,10 @@
 @extends('admin')
 @section('content')
-<title>Adicionar clube</title>
+<title>Adicionar escalao</title>
 <div class="container"> 
        <link rel="stylesheet" href="{{asset('css/app.css')}}">
-      <h2>Registrar clube</h2><br>
-   <a href="{{URL::to('clube')}}" title=""><h4><- voltar</h4></a>
+      <h2>Registrar escalão</h2><br>
+   <a href="{{URL::to('atleta/create')}}" title=""><h4><- voltar</h4></a>
              
                @if ($errors->any())
                    <div class="alert alert-danger">
@@ -22,7 +22,7 @@
                    </div><br>
                @endif
 
-  <form method="post" action="{{url('clube')}}">
+  <form method="post" action="{{url('escalao')}}">
           {{csrf_field()}}
                                <!-- Nome -->
  
@@ -32,7 +32,7 @@
                              <!-- Nome -->
             <div class="col-md-8">
                 <label for="nome"> Nome :</label>
-                <input type="text" class="form-control" name="nome"placeholder="Ex: Costa do Sol"></input> 
+        <input type="text" class="form-control" name="nome"placeholder="Ex: Juvenis "></input> 
             </div>
         </div>
 
@@ -46,7 +46,7 @@
         </div>
 
    <div class="form-group col-md-4"> 
-    <button type="submit" class="btn btn-success" style="margin-left:38px">Adicionar clube</button>  
+    <button type="submit" class="btn btn-success" style="margin-left:38px">Adicionar escalao</button>  
     <!-- -->
   </div>
 </form>

@@ -14,9 +14,11 @@ class TreinadorController extends Controller
              }
 
          public function create()
-             { 
-             $treinador =Treinador::all();  
-             return view("treinador.create",compact('clube'));
+             {   
+              $treinador =Treinador::all(); 
+              $clube =Clube::all();  
+
+                 return view("treinador.create",['clube'=>$clube]);  
              }  
 
          public function edit($id)

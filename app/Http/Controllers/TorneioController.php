@@ -25,6 +25,18 @@ class TorneioController extends Controller
              return view('torneio.edit', compact('torneio','id')); 
          } 
 
+        public function update(Request $request, $id)
+         {      
+           request()->validate(  
+          [   
+                  'nome' => 'required' 
+          ]); 
+          Torneio::find($id)->update($request->all());
+           return redirect()->route('torneio.index')
+
+                        ->with('success','Torneio actualizado com sucesso');  
+         }   
+
          public function store(Request $request)
          {      
            $this->validate(request(), [
@@ -46,25 +58,7 @@ class TorneioController extends Controller
             return back()->with('success', 'Torneio adicionado com sucesso'); 
  
          }
- 
-         public function update(Request $request, $id)
-         {      
-            $torneio = Torneio::find($id);
-           $this->validate(request(), [
-                  'nome' => 'required' 
-            ]); 
-             $torneio->nome = $request->get('nome');  
-             $torneio->estado = $request->get('estado');  
-             $torneio->datai = $request->get('datai'); 
-             $torneio->datat = $request->get('datat'); 
-             $torneio->participantes = $request->get('participantes');  
-             $torneio->rapazes = $request->get('rapazes'); 
-             $torneio->raparigas = $request->get('raparigas');  
-             $torneio->desclassificados = $request->get('desclassificados'); 
-             $torneio->descricao = $request->get('descricao'); 
-             $torneio->save();
-             return redirect('torneio')->with('success','Torneio actualizado com sucesso');
-         }
+
          public function destroy($id)
         {
              $torneio = Torneio::find($id);

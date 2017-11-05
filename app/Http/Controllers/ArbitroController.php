@@ -53,31 +53,21 @@ class ArbitroController extends Controller
         Arbitro::create($request->all());
             return back()->with('success', 'Arbitro adicionado com sucesso'); 
 
-         } 
- 
-    public function update(Request $request, $id)
-         {     
-        $arbitro = Arbitro::find($id);  
-        
-         $this->validate(request(), [
-          'nome' => 'required' 
-            ]);
+         }         
+      public function update(Request $request, $id)
+      { 
+           request()->validate(  
+          [   
+                 'nome' => 'required'   
+           ]); 
+       Arbitro::find($id)->update($request->all());
+           return redirect()->route('arbitro.index')
 
-        $arbitro ->apelido = $request->get('apelido');
-        $arbitro ->nome = $request->get('nome');
-        $arbitro ->sexo = $request->get('sexo');
-        $arbitro ->idade = $request->get('idade');  
-        $arbitro ->telefone = $request->get('telefone');
-        $arbitro ->email = $request->get('email');
-        $arbitro ->descricao = $request->get('descricao');
-        $arbitro->save();
-        return redirect('arbitro')->with('success','Arbitro actualizado com sucesso');
- 
-               }  
-
+                        ->with('success','Arbitro actualizado com sucesso'); 
+      } 
     public function destroy(Request $request, $id)
 
-    {
+      {
 
          Arbitro::find($id)->delete();
         // return back()->with('success', 'Arbitro apagado com sucesso');
@@ -87,12 +77,10 @@ class ArbitroController extends Controller
 
                 }  
      public function testPhotoCanBeUploaded()
-    {
+     {
          $this->visit('/upload')
             ->attach($pathToFile, 'photo')
             ->press('Upload')
             ->see('Upload Successful!');
-                  }
-
-
+                  }  
 }

@@ -14,8 +14,8 @@ class CategoriaController extends Controller
  
       public function create()
          {
-             $categoria = new Categoria();
-             return view("categoria.create",compact('categoria')); 
+             $categoria =Categoria::all()->toArray();      
+            return view("categoria.create",compact('categoria'));  
          } 
     
          public function edit($id)
@@ -31,8 +31,7 @@ class CategoriaController extends Controller
         'nome' => 'required|unique:categorias|max:40',
             ]);
             $categoria = new Categoria([
-                'nome' => $request->get('nome'),  
-                'descricao' => $request->get('descricao')
+                'nome' => $request->get('nome'),   
                //campos de exigencia de valores
                               ]);
       Categoria::create($request->all());

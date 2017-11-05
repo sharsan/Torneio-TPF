@@ -29,6 +29,18 @@ class InscritoController extends Controller
              return view('inscrito.edit', compact('inscrito','id')); 
          } 
 
+        public function update(Request $request, $id)
+         {      
+           request()->validate(  
+          [   
+                  'nome' => 'required' 
+          ]); 
+          Inscrito::find($id)->update($request->all());
+           return redirect()->route('inscrito.index')
+
+                        ->with('success','Inscrição actualizada com sucesso');  
+         }  
+         
          public function store(Request $request)
          {      
            $this->validate(request(), [
@@ -48,19 +60,6 @@ class InscritoController extends Controller
  
          }
  
-         public function update(Request $request, $id)
-         {      
-            $inscrito = Inscrito::find($id);
-           $this->validate(request(), [
-                  'nome' => 'required' 
-            ]); 
-             $inscrito->nome = $request->get('nome');  
-             $inscrito->competidor = $request->get('competidor');  
-             $inscrito->escalao = $request->get('escalao');  
-             $inscrito->descricao = $request->get('descricao'); 
-             $inscrito->save();
-             return redirect('inscrito')->with('success','Competidor actualizado com sucesso');
-         }
          public function destroy($id)
         {
              $inscrito = Inscrito::find($id);
