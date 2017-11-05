@@ -8,21 +8,21 @@ class TreinadorController extends Controller
 {
          public function index()
              {
-             $treinador_id =Treinador::all(); 
+             $treinador =Treinador::all(); 
 
-             return view("treinador.index",compact('treinador_id'));
+             return view("treinador.index",compact('treinador'));
              }
 
          public function create()
              { 
-             $treinador_id =Treinador::all();  
+             $treinador =Treinador::all();  
              return view("treinador.create",compact('clube'));
              }  
 
          public function edit($id)
              {
-                 $treinador_id = Treinador::find($id);
-                 return view('treinador.edit',compact('treinador_id','id'));
+                 $treinador = Treinador::find($id);
+                 return view('treinador.edit',compact('treinador','id'));
              }
 
          public function store(Request $request)
@@ -41,7 +41,7 @@ class TreinadorController extends Controller
                                         ]);
              }
      
-                 $treinador_id = new Treinador([
+                 $treinador = new Treinador([
                   'nome' => $request->get('nome'),
                   'apelido' => $request->get('apelido'),   
                   'sexo' => $request->get('sexo'), 
@@ -69,8 +69,8 @@ class TreinadorController extends Controller
 
          public function destroy($id)
             {
-               $treinador_id = Treinador::find($id);
-               $treinador_id->delete();
+               $treinador = Treinador::find($id);
+               $treinador->delete();
 
               return redirect('treinador');
             } 

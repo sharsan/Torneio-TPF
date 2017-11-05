@@ -21,11 +21,11 @@ class AtletaController extends Controller
             public function create()
        {              
              $atleta =Atleta::all();  
-             $categoria_id =Categoria::all(); 
-             $clube_id =Clube::all(); 
-             $escalao_id =Escalao::all();
-             $treinador_id =Treinador::all();
-           return view("atleta.create",['categoria'=>$categoria,'clube_id'=>$clube_id,'escalao_id'=>$escalao_id,'treinador_id'=>$treinador_id]);
+             $categoria =Categoria::all(); 
+             $clube=Clube::all(); 
+             $escalao =Escalao::all();
+             $treinador =Treinador::all();
+           return view("atleta.create",['categoria'=>$categoria,'clube'=>$clube,'escalao'=>$escalao,'treinador'=>$treinador]);
        }   
 
     public function edit($id)
@@ -54,15 +54,15 @@ class AtletaController extends Controller
           'nome' => $request->get('nome'),
           'apelido' => $request->get('apelido'),
           'cinturao' => $request->get('cinturao'), 
-          'clube_id' => $request->get('clube_id'), 
-          'categoria_id' => $request->get('categoria_id'), 
-          'escalao' => $request->get('escalao_id'), 
+          'clube' => $request->get('clube'), 
+          'categoria' => $request->get('categoria'), 
+          'escalao' => $request->get('escalao'), 
           'peso' => $request->get('peso'), 
           'sexo' => $request->get('sexo'),  
           'idade' => $request->get('idade'),  
           'telefone' => $request->get('telefone'), 
           'email' => $request->get('email'), 
-          'treinador_id' => $request->get('treinador_id'), 
+          'treinador' => $request->get('treinador'), 
           'descricao' => $request->get('descricao') 
           //campos de exigencia de valores
         ]);
@@ -93,15 +93,15 @@ class AtletaController extends Controller
              // $table->string('email')/*->unique()*/; 
         $atleta->apelido = $request->get('apelido');
         $atleta->cinturao = $request->get('cinturao');
-        $atleta->clube_id = $request->get('clube_id');
-        $atleta->categoria_id = $request->get('categoria_id');
-        $atleta->escalao_id = $request->get('escalao_id');
+        $atleta->clube = $request->get('clube');
+        $atleta->categoria = $request->get('categoria');
+        $atleta->escalao = $request->get('escalao');
         $atleta->peso = $request->get('peso');
         $atleta->sexo = $request->get('sexo');
         $atleta->idade = $request->get('idade');
         $atleta->telefone = $request->get('telefone');
         $atleta->email = $request->get('email');
-        $atleta->treinador_id = $request->get('treinador_id');
+        $atleta->treinador = $request->get('treinador');
         $atleta->descricao = $request->get('descricao');
         $atleta->save();
         return redirect('/atleta')->with('success','Arbitro actualizado com sucesso');

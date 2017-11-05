@@ -7,21 +7,22 @@ class EscalaoController extends Controller
 {
         public function index()
          {
-             $escalao_id = Escalao::all()->toArray();
+             $escalao = Escalao::all()->toArray();
         
-             return view('escalao.index', compact('escalao_id'));
+             return view('escalao.index', compact('escalao'));
          }
  
          public function create()
          {
-             return view("escalao.create",compact('escalao_id')); 
+             $escalao = new Escalao();
+             return view("escalao.create",compact('escalao')); 
          } 
     
          public function edit($id)
          {
-             $escalao_id = Escalao::find($id);
+             $escalao = Escalao::find($id);
         
-             return view('escalao.edit', compact('escalao_id','id')); 
+             return view('escalao.edit', compact('escalao','id')); 
          } 
 
          public function store(Request $request)
@@ -29,7 +30,7 @@ class EscalaoController extends Controller
            $this->validate(request(), [
            'nome' => 'required|unique:escalaos|max:20',
             ]);
-            $escalao_id = new Escalao([
+            $escalao = new Escalao([
                 'nome' => $request->get('nome'), 
                //campos de exigencia de valores
                               ]);
@@ -52,8 +53,8 @@ class EscalaoController extends Controller
  
          public function destroy($id)
         {
-           $escalao_id = Escalao::find($id);
-           $escalao_id->delete();
+           $escalao = Escalao::find($id);
+           $escalao->delete();
 
            return redirect('/escalao');
       }  

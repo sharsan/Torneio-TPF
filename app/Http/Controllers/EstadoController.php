@@ -7,21 +7,22 @@ class EstadoController extends Controller
 {
         public function index()
          {
-             $estado_id = Estado::all()->toArray();
+             $estado = Estado::all()->toArray();
         
-             return view('estado.index', compact('estado_id'));
+             return view('estado.index', compact('estado'));
          }
  
          public function create()
          {
-             return view("estado.create",compact('estado_id')); 
+             $estado = new Estado();
+             return view("estado.create",compact('estado')); 
          } 
     
          public function edit($id)
          {
-             $estado_id = Estado::find($id);
+             $estado = Estado::find($id);
         
-             return view('estado.edit', compact('estado_id','id')); 
+             return view('estado.edit', compact('estado','id')); 
          } 
 
          public function store(Request $request)
@@ -29,7 +30,7 @@ class EstadoController extends Controller
            $this->validate(request(), [
            'nome' => 'required|unique:estados|max:20',
             ]);
-            $estado_id = new Estado([
+            $estado = new Estado([
                 'nome' => $request->get('nome'), 
                //campos de exigencia de valores
                               ]);
@@ -52,9 +53,9 @@ class EstadoController extends Controller
  
          public function destroy($id)
         {
-           $estado_id = Estado::find($id);
-           $estado_id->delete();
+           $estado = Estado::find($id);
+           $estado->delete();
 
-           return redirect('/estado_id');
+           return redirect('/estado');
       }  
 }

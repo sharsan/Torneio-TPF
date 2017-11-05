@@ -7,21 +7,22 @@ class ClubeController extends Controller
 {
       public function index()
          {
-             $clube_id = Clube::all()->toArray();
+             $clube = Clube::all()->toArray();
         
-             return view('clube.index', compact('clube_id'));
+             return view('clube.index', compact('clube'));
          }
  
       public function create()
          {
-             return view("clube.create",compact('clube_id')); 
+             $clube = new Clube();
+             return view("clube.create",compact('clube')); 
          } 
     
          public function edit($id)
          {
-             $clube_id = Clube::find($id);
+             $clube = Clube::find($id);
         
-             return view('clube.edit', compact('clube_id','id')); 
+             return view('clube.edit', compact('clube','id')); 
          } 
 
          public function store(Request $request)
@@ -29,12 +30,12 @@ class ClubeController extends Controller
            $this->validate(request(), [
         'nome' => 'required|unique:clubes|max:40',
             ]);
-            $clube_id = new Clube([
+            $clube = new Clube([
                 'nome' => $request->get('nome'),  
                 'descricao' => $request->get('descricao')
                //campos de exigencia de valores
                               ]);
-      Clube::create($request->all());
+           Clube::create($request->all());
             return back()->with('success', 'Clube adicionado com sucesso'); 
  
          }
@@ -53,8 +54,8 @@ class ClubeController extends Controller
  
          public function destroy($id)
         {
-           $clube_id = Clube::find($id);
-           $clube_id->delete();
+           $clube = Clube::find($id);
+           $clube->delete();
 
            return redirect('/clube');
       }  

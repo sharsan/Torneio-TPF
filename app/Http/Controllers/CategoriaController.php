@@ -7,21 +7,22 @@ class CategoriaController extends Controller
 {
       public function index()
          {
-             $categoria_id = Categoria::all()->toArray();
+             $categoria = Categoria::all()->toArray();
         
-             return view('categoria.index', compact('categoria_id'));
+             return view('categoria.index', compact('categoria'));
          }
  
       public function create()
          {
-             return view("categoria.create",compact('categoria_id')); 
+             $categoria = new Categoria();
+             return view("categoria.create",compact('categoria')); 
          } 
     
          public function edit($id)
          {
-             $categoria_id = Categoria::find($id);
+             $categoria = Categoria::find($id);
         
-             return view('categoria.edit', compact('categoria_id','id')); 
+             return view('categoria.edit', compact('categoria','id')); 
          } 
 
          public function store(Request $request)
@@ -29,7 +30,7 @@ class CategoriaController extends Controller
            $this->validate(request(), [
         'nome' => 'required|unique:categorias|max:40',
             ]);
-            $categoria_id = new Categoria([
+            $categoria = new Categoria([
                 'nome' => $request->get('nome'),  
                 'descricao' => $request->get('descricao')
                //campos de exigencia de valores
@@ -53,8 +54,8 @@ class CategoriaController extends Controller
  
          public function destroy($id)
         {
-           $categoria_id = Categoria::find($id);
-           $categoria_id->delete();
+           $categoria = Categoria::find($id);
+           $categoria->delete();
 
            return redirect('/categoria');
       }  
