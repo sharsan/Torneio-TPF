@@ -12,7 +12,7 @@ use App\Treinador;
 class AtletaController extends Controller
 {   
 
-   public function index()
+      public function index()
        {
         $atleta = Atleta::all()->toArray(); 
         return view('atleta.index', compact('atleta'));
@@ -38,7 +38,7 @@ class AtletaController extends Controller
       { 
            request()->validate(  
           [   
-                 'nome' => 'required'   
+                 'nome' => 'required|unique:atletas|min:3,max:40',    
            ]); 
        Atleta::find($id)->update($request->all());
            return redirect()->route('atleta.index')
@@ -55,10 +55,10 @@ class AtletaController extends Controller
               'idade'=> 'numeric|min:3|max:90',  
                                                       ]);
                                     }
-                   else{  
+                  else{  
 
              $this->validate(request(), [
-               'nome' => 'required|unique:atletas|max:40', 
+               'nome' => 'required|unique:atletas|min:3,max:40', 
                                         ]);
              }
 

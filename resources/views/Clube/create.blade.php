@@ -32,7 +32,7 @@
                              <!-- Nome -->
             <div class="col-md-8">
                 <label for="nome"> Nome :</label>
-                <input type="text" class="form-control" name="nome"placeholder="Ex: Costa do Sol"></input> 
+                <input type="text" class="form-control" name="nome" placeholder="Ex: Costa do Sol"></input> 
             </div>
         </div>
 

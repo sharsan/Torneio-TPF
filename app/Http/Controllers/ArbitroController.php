@@ -36,7 +36,7 @@ class ArbitroController extends Controller
                    else{  
 
              $this->validate(request(), [
-               'nome' => 'required|unique:arbitros|max:40', 
+               'nome' => 'required|unique:arbitros|min:13,max:40', 
                                         ]);
              }
 
@@ -58,7 +58,7 @@ class ArbitroController extends Controller
       { 
            request()->validate(  
           [   
-                 'nome' => 'required'   
+                'nome' => 'required|unique:atletas|min:13,max:40',  
            ]); 
        Arbitro::find($id)->update($request->all());
            return redirect()->route('arbitro.index')

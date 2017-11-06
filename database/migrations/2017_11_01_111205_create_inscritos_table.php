@@ -5,25 +5,19 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 class CreateInscritosTable extends Migration
-{
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+{ 
     public function up()
     {
         Schema::create('inscritos', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('nomeTorneio', 45);
+            $table->string('atleta', 45); 
+            $table->string('escalao',30); 
+            $table->string('descricao', 150);
             $table->timestamps();
-        });
+        }); 
     }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+ 
     public function down()
     {
         Schema::dropIfExists('inscritos');

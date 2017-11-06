@@ -39,13 +39,12 @@
       <tbody>
         @foreach($grupo4 as $post)
         <tr>
-          <td>{{$post['id']}}</td>
-          <td>{{$post['nome']}}</td>
+          <td>{{$post['id']}}</td> 
           <td>{{$post['escalao']}}</td>
-          <td>{{$post['A']}}</td>
-          <td>{{$post['B']}}</td>
-          <td>{{$post['C']}}</td>
-          <td>{{$post['D']}}</td>
+          <td>{{$post['atleta1']}}</td>
+          <td>{{$post['atleta2']}}</td>
+          <td>{{$post['atleta3']}}</td>
+          <td>{{$post['atleta4']}}</td>
           <td>{{$post['juri']}}</td>
           <td>{{$post['created_at']}}</td>
           <td>{{$post['updated_at']}}</td> 

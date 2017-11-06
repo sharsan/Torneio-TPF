@@ -33,7 +33,7 @@ class InscritoController extends Controller
          {      
            request()->validate(  
           [   
-                  'nome' => 'required' 
+                  'atleta' => 'required' 
           ]); 
           Inscrito::find($id)->update($request->all());
            return redirect()->route('inscrito.index')
@@ -45,13 +45,12 @@ class InscritoController extends Controller
          {      
            $this->validate(request(), [
         // 'nome' => 'required|unique:inscritos|max:40',
-                'nome' => 'required'
+                'atleta' => 'required'
             ]);
             $inscrito = new Inscrito([
-                'nome' => $request->get('nome'),
-                'competidor' => $request->get('competidor'), 
-                'escalao' => $request->get('escalao'), 
-                'desclassificados' => $request->get('desclassificados'), 
+                'nomeTorneio' => $request->get('nomeTorneio'),
+                'atleta' => $request->get('atleta'), 
+                'escalao' => $request->get('escalao'),  
                 'descricao' => $request->get('descricao')
                //campos de exigencia de valores
                               ]);

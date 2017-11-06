@@ -24,15 +24,15 @@
 
   <form method="post" action="{{url('categoria')}}">
           {{csrf_field()}}
-                               <!-- Nome -->
+                              
  
         <div class="row">
           <div class="form-group col-md-8">  
              
                              <!-- Nome -->
             <div class="col-md-8">
-                <label for="nome"> Nome :</label>
-        <input type="text" class="form-control" name="nome"placeholder="Ex: Juvenis "></input> 
+                <label for="nometorneio"> Nome :</label>
+        <input type="text" class="form-control" name="nometorneio" placeholder="Ex: Juvenis "></input> 
             </div>
         </div>  
       </div>

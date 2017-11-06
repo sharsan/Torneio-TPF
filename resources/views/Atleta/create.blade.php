@@ -41,11 +41,11 @@
           </div>
           <div class="form-group col-md-10">    
                                      <!-- Fotografia   -->
-            <div class="col-md-3"> 
+<!--             <div class="col-md-3"> 
                <label for="fotografia">Fotografia 
                  <input type="file" class="form-control-file" id="fotografia">
                </label> 
-            </div>
+            </div> -->
                                        <!-- Sexo --> 
             <div class="col-md-3">  <br> 
                 <label for="sexo">Sexo :
@@ -65,13 +65,13 @@
             </div>  
           </div>
           <div class="form-group col-md-10">    
-                                       <!-- telefone --> 
+                                         <!-- telefone --> 
             <div class="col-md-3">                
                <label for="telefone"> telefone:</label>
                <input type="int" class="form-control" name="telefone"></input></div>  
                  
             <div class="col-md-6">         
-                                         <!-- email --> 
+                                            <!-- email --> 
                <label for="email"> email: </label> 
                <input type="text" class="form-control" name="email"></input>
             </div>  
@@ -88,24 +88,20 @@
                           @foreach($clube as $clb)
                           <option value="{{$clb->nome}}">{{$clb->nome}} </option>
                         @endforeach
-                </select> 
-              </label> 
-              <label> <a href="{{URL::to('clube')}}" title=""><h5>+ Outro clube</h5></a>  </label>  
+                      </select> 
+            </label> 
+            <label> <a href="{{URL::to('clube')}}" title=""><h5>+ Outro clube</h5></a> 
+            </label>  
              </div>           
-                                 <!--Categoria -->
+                                            <!--Categoria -->
             <div class="col-md-12"> <br> 
-                 <label for="categoria">Categoria : 
+                 <label for="categoria"> Categoria : 
                           <select id="categoria" name="categoria">
                   
                           @foreach($categoria as $cat)
                           <option value="{{$cat->nome}}">{{$cat->nome}} </option>
                           @endforeach
-                          </select>      
-                          
-<!-- caso se nacessite colocar um adicionador de categorias -->
-<!--                  </label> 
-       <label> <a href="{{URL::to('categoria')}}" title=""><h5>+ Outra categoria</h5></a> 
-                 </label>  -->
+                          </select>       
                   </label>     
 
                            <!-- Cinturao -->  
@@ -129,7 +125,7 @@
                 <div class="col-md-6"> <br>
                              <!-- Escalao  --> 
                  <label for="escalao">Escalão de peso : 
-                      <select id="categoria" name="categoria">
+                      <select id="escalao" name="escalao">
                   
                           @foreach($escalao as $esc)
                           <option value="{{$esc->nome}}">{{$esc->nome}} </option>
@@ -144,7 +140,7 @@
                               <!-- Peso --> 
                <div class="col-md-3">        
                     <label for="peso">Peso (Kg): 
-                        <input type="int" class="form-control" name="peso"></input>
+                       <input type="int" class="form-control" name="peso"></input>
                     </label>   
                </div>       
            

@@ -8,14 +8,9 @@
     <thead>
       <tr>
         <th>ID</th>
-        <th>Evento</th>
-        <th>Estado</th> 
+        <th>Evento</th> 
         <th>Inicio</th>
-        <th>Término</th>
-        <th>Participantes</th>
-        <th>rapazes</th>
-        <th>raparigas</th>
-        <th>desclassificados</th> 
+        <th>Término</th> 
         <th>Criado em</th>
         <th>Actualizado em</th> 
       </tr>
@@ -25,14 +20,9 @@
       <tr>
         
         <td>{{$post['id']}}</td>
-        <td>{{$post['nome']}}</td>
-        <td>{{$post['estado']}}</td>
+        <td>{{$post['nome']}}</td> 
         <td>{{$post['datai']}}</td>
-        <td>{{$post['datat']}}</td>
-        <td>{{$post['participantes']}}</td>
-        <td>{{$post['rapazes']}}</td>
-        <td>{{$post['raparigas']}}</td>
-        <td>{{$post['desclassificados']}}</td> 
+        <td>{{$post['datat']}}</td> 
         <td>{{$post['created_at']}}</td>
         <td>{{$post['updated_at']}}</td>
 

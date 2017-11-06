@@ -42,13 +42,12 @@ class Grupo4Controller extends Controller
                  'nome' => 'required|max:40',  
             ]);
                  $Grupo4 = new Grupo4([
-                 'juri' => $request->get('juri'),
-                 'nome' => $request->get('nome'),
+                 'juri' => $request->get('juri'), 
                  'escalao' => $request->get('escalao'),
-                 'primeiro' => $request->get('primeiro'),
-                 'segundo' => $request->get('segundo'),
-                 'terceiro' => $request->get('terceiro'),
-                 'terceiro2' => $request->get('terceiro2'),
+                 'atleta1' => $request->get('atleta1'),
+                 'atleta2' => $request->get('atleta2'),
+                 'atleta3' => $request->get('atleta3'),
+                 'atleta4' => $request->get('atleta4'),
                  'descricao' => $request->get('descricao') 
           ]);
 

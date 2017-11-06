@@ -39,7 +39,7 @@ class TreinadorController extends Controller
                    else{  
 
              $this->validate(request(), [
-               'nome' => 'required|unique:treinadors|max:40', 
+               'nome' => 'required|unique:treinadors|min:13,max:40',
                                         ]);
              }
      
