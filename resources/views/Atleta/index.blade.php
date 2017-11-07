@@ -1,10 +1,12 @@
 @extends('admin')
 @section('content')
 <title>Atletas </title>
-  <div class="container">
+<div class="container">
   <h3><center><th>Atletas</th></center> </h3>
-    <table class="table table-striped"> 
-  <a href="{{URL::to('atleta/create')}}" title=""><h4>Adicionar atleta</h4></a>
+  <input type="text" maxlength="40" size="50" id="filtro-nome" class="form-control" onkeyup="filtrar(); mostrarLinhas();" placeholder="Pesquise pelo nome"></input>
+
+  <table class="table table-striped" id="minhaTabela"> 
+    <a href="{{URL::to('atleta/create')}}" title=""><h4>Adicionar atleta</h4></a>
     <thead>
       <tr>
         <th>ID</th>
@@ -49,12 +51,12 @@
             {{csrf_field()}}
             <input name="_method" type="hidden" value="DELETE">
             <button class="btn btn-danger" type="submit">Apagar</button>
-          
+
           </form>
         </td>
       </tr>
       @endforeach
     </tbody>
   </table>
-  </div>
+</div>
 @endsection

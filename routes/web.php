@@ -2,14 +2,15 @@
 
 Route::get('/', function () {
   // return view('inicio');
-    return view('home');
+	return view('home');
 });
 
- 
+
 Route::resource('arbitro', 'ArbitroController');
 Route::resource('atleta', 'AtletaController'); 
 Route::resource('categoria', 'CategoriaController'); 
 Route::resource('clube', 'ClubeController');  
+Route::resource('escalao', 'EscalaoController');   
 Route::resource('estado', 'EstadoController');   
 Route::resource('et', 'EstadoTorneioController'); 
 Route::resource('grupo4', 'Grupo4Controller'); 
@@ -29,7 +30,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 // Route::get('inicio', function () { 
 Route::get('home', function () { 
-  return view('welcome');
+	return view('welcome');
 });
 
 Route::get('/resultados', 'UsuarioController@resultados')->name('resultados');
