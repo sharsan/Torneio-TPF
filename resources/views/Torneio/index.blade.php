@@ -5,6 +5,7 @@
   <h3><center><th>Torneiros</th></center> </h3>
     <table class="table table-striped"> 
   <a href="{{URL::to('torneio/create')}}" title=""><h4>Adicionar torneio</h4></a>
+  <a href="{{URL::to('et')}}" title=""><h4>Ver estado dos torneios</h4></a>
     <thead>
       <tr>
         <th>ID</th>
@@ -26,6 +27,7 @@
         <td>{{$post['created_at']}}</td>
         <td>{{$post['updated_at']}}</td>
 
+        <!-- <td><a href="{{action('EstadoTorneioController@index', $post['id'])}}" class="btn btn-success">Estado</a></td> -->
         <td><a href="{{action('TorneioController@edit', $post['id'])}}" class="btn btn-success">Editar</a></td>
         <td>
           <form action="{{action('TorneioController@destroy', $post['id'])}}" method="post">

@@ -14,8 +14,11 @@ class TorneioController extends Controller
 
          public function create()
          {     
-             $estado =Estado::all(); 
-             return view("torneio.create",compact('estado')); 
+             $estado = new Estado();
+             return view("estado.create",compact('estado'));  
+             
+             // $estado =Estado::all(); 
+             // return view("torneio.create",compact('estado')); 
          } 
     
          public function edit($id)
@@ -43,14 +46,9 @@ class TorneioController extends Controller
         'nome' => 'required|unique:torneios|max:40',
             ]);
             $torneio = new Torneio([
-                'nome' => $request->get('nome'),
-                'estado' => $request->get('estado'),  
+                'nome' => $request->get('nome'),  
                 'datai' => $request->get('datai'),   
                 'datat' => $request->get('datat'),   
-                'participantes' => $request->get('participantes'), 
-                'rapazes' => $request->get('rapazes'), 
-                'raparigas' => $request->get('raparigas'), 
-                'desclassificados' => $request->get('desclassificados'), 
                 'descricao' => $request->get('descricao')
                //campos de exigencia de valores
                               ]);

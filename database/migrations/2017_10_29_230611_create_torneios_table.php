@@ -14,11 +14,7 @@ class CreateTorneiosTable extends Migration
             $table->string('nome', 100);   
             $table->string('estado', 100);      
             $table->date('datai');      
-            $table->date('datat');
-            $table->integer('participantes'); 
-            $table->integer('rapazes'); 
-            $table->integer('raparigas'); 
-            $table->integer('desclassificados');   
+            $table->date('datat');   
             $table->string('descricao', 150);  
             $table->timestamps(); 
         });

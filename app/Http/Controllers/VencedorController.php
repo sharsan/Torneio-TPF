@@ -45,7 +45,7 @@ class VencedorController extends Controller
             ]);
                  $vencedor = new Vencedor([
                  'juri' => $request->get('juri'),
-                 'nome' => $request->get('nome'),
+                 'nomeTorneio' => $request->get('nomeTorneio'),
                  'escalao' => $request->get('escalao'),
                  'primeiro' => $request->get('primeiro'),
                  'segundo' => $request->get('segundo'),
@@ -54,7 +54,7 @@ class VencedorController extends Controller
                  'descricao' => $request->get('descricao') 
           ]);
 
-$existe=Vencedor::where("nome",$request->get('nome'))->where("escalao",$request->get('escalao'))->exists();
+$existe=Vencedor::where("escalao",$request->get('nome'))->where("escalao",$request->get('escalao'))->exists();
 
          if($existe==false){
              Vencedor::create($request->all()); 
@@ -68,7 +68,7 @@ $existe=Vencedor::where("nome",$request->get('nome'))->where("escalao",$request-
             {   request()->validate(
                  [ 
 
-            'nome' => 'required' 
+            'nomeTorneio' => 'required' 
                   ]);
           Vencedor::find($id)->update($request->all());
 

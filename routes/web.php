@@ -10,18 +10,18 @@ Route::resource('arbitro', 'ArbitroController');
 Route::resource('atleta', 'AtletaController'); 
 Route::resource('categoria', 'CategoriaController'); 
 Route::resource('clube', 'ClubeController');  
-Route::resource('estado', 'EstadoController');  
-Route::resource('escalao', 'EscalaoController'); 
+Route::resource('estado', 'EstadoController');   
+Route::resource('et', 'EstadoTorneioController'); 
 Route::resource('grupo4', 'Grupo4Controller'); 
 Route::resource('inscrito', 'InscritoController'); 
 Route::resource('grupo', 'GrupoController'); 
 Route::resource('treinador', 'TreinadorController');  
 Route::resource('torneio', 'TorneioController');   
 Route::resource('vencedor', 'VencedorController');  
-Route::resource('usuario', 'UsuarioController');   
+Route::resource('usuario', 'UsuarioController'); 
 
 Route::get('/login', 'LoginController@form');
-Route::post('/login', 'LoginController@login');
+Route::post('/login', 'LoginController@login'); 
 
 Auth::routes();
 
