@@ -5,6 +5,12 @@
   <h3><center><th>Atletas</th></center> </h3>
   <input type="text" maxlength="40" size="50" id="filtro-nome" class="form-control" onkeyup="filtrar(); mostrarLinhas();" placeholder="Pesquise pelo nome"></input>
 
+
+
+  <form method="GET">
+    <input type="text" name="name">
+    <input type="checkbox" name="hasCoffeeMachine" value="1"><span> Apply Filter</span>
+  </form>
   <table class="table table-striped" id="minhaTabela"> 
     <a href="{{URL::to('atleta/create')}}" title=""><h4>Adicionar atleta</h4></a>
     <thead>

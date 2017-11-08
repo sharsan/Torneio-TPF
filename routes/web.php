@@ -21,6 +21,12 @@ Route::resource('torneio', 'TorneioController');
 Route::resource('vencedor', 'VencedorController');  
 Route::resource('usuario', 'UsuarioController'); 
 
+Route::get('/search', 'SearchController@search');
+
+Route::get('/mail', function(){
+	return view('maillaravel');
+});
+
 Route::get('/login', 'LoginController@form');
 Route::post('/login', 'LoginController@login'); 
 
